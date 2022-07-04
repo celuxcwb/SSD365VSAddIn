@@ -334,7 +334,7 @@ namespace SSD365VSAddIn.Labels
             {
                 this.iFormExtension.FormDesign.Caption = this.GetLabel(this.iFormExtension.FormDesign.Caption);
 
-                this.RunEnumerator(this.iFormExtension.FormDesign.VisualChildren);
+                this.RunEnumerator(this.iFormExtension.FormDesign.FormControls);
             }
 
         }
@@ -354,7 +354,7 @@ namespace SSD365VSAddIn.Labels
             //check if table is in current model
             var tableExists = Common.CommonUtil.GetMetaModelProviders()
                                 .CurrentMetadataProvider
-                                .Tables.ListObjectsForModel(Common.CommonUtil.GetCurrentModel().Name)
+                                .Forms.ListObjectsForModel(Common.CommonUtil.GetCurrentModel().Name)
                                 .Where(t => t.Equals(this.iForm.Name))
                                 .FirstOrDefault();
 
@@ -362,7 +362,7 @@ namespace SSD365VSAddIn.Labels
             {
                 this.iForm.FormDesign.Caption = this.GetLabel(this.iForm.FormDesign.Caption);
 
-                this.RunEnumerator(this.iForm.FormDesign.VisualChildren);
+                this.RunEnumerator(this.iForm.FormDesign.FormControls);
             }
 
         }
@@ -453,7 +453,7 @@ namespace SSD365VSAddIn.Labels
             //check if table is in current model
             var tableExists = Common.CommonUtil.GetMetaModelProviders()
                                 .CurrentMetadataProvider
-                                .Tables.ListObjectsForModel(Common.CommonUtil.GetCurrentModel().Name)
+                                .FormExtensions.ListObjectsForModel(Common.CommonUtil.GetCurrentModel().Name)
                                 .Where(t => t.Equals(this.iForm.Name))
                                 .FirstOrDefault();
 
@@ -461,7 +461,7 @@ namespace SSD365VSAddIn.Labels
             {
                 this.iForm.FormDesign.Caption = this.GetLabel(this.iForm.FormDesign.Caption);
 
-                this.RunEnumerator(this.iForm.FormDesign.VisualChildren);
+                this.RunEnumerator(this.iForm.FormDesign.FormControls);
             }
 
         }
